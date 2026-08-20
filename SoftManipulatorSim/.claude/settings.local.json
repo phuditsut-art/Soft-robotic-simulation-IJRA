@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(python \"C:\\\\Users\\\\ankue\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\C--Users-ankue-SoftManipulatorSim\\\\b5023b49-f5a7-419b-ad62-f6a028552a64\\\\scratchpad\\\\verify_golden.py\")",
+      "PowerShell(pip install numpy --quiet)",
+      "PowerShell(\\(Get-Content \"Assets\\\\Scenes\\\\SampleScene.unity\" -Raw\\) -replace \"guid: e87d3e95154e87745973fc84465f6ded, type: 3}`n  m_Name:`n\", \"guid: e87d3e95154e87745973fc84465f6ded, type: 3}`n  m_Name: `n\" | Set-Content \"Assets\\\\Scenes\\\\SampleScene.unity\" -NoNewline -Encoding utf8)",
+      "PowerShell($b = [System.IO.File]::ReadAllBytes\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); Write-Output \\('First bytes: ' + \\($b[0..3] -join ','\\)\\); $s = [System.IO.File]::ReadAllText\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); $crlf = [regex]::Matches\\($s, \"`r`n\"\\).Count; Write-Output \\(\"CRLF count: $crlf\"\\); $needle = \"e87d3e95154e87745973fc84465f6ded, type: 3}`n  m_Name: `n\"; Write-Output \\('Name fixed: ' + $s.Contains\\($needle\\)\\))",
+      "PowerShell($s = [System.IO.File]::ReadAllText\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); $utf8NoBom = New-Object System.Text.UTF8Encoding\\($false\\); [System.IO.File]::WriteAllText\\('Assets\\\\Scenes\\\\SampleScene.unity', $s, $utf8NoBom\\); $b = [System.IO.File]::ReadAllBytes\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); Write-Output \\('First bytes now: ' + \\($b[0..3] -join ','\\)\\))",
+      "PowerShell($g = [guid]::NewGuid\\(\\).ToString\\('N'\\); Write-Output $g)",
+      "PowerShell($s = [System.IO.File]::ReadAllText\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); $s = $s.Replace\\(\"guid: 7104bd3ea34a485082bf53ed028f3189, type: 3}`n  m_Name:`n\", \"guid: 7104bd3ea34a485082bf53ed028f3189, type: 3}`n  m_Name: `n\"\\); $utf8NoBom = New-Object System.Text.UTF8Encoding\\($false\\); [System.IO.File]::WriteAllText\\('Assets\\\\Scenes\\\\SampleScene.unity', $s, $utf8NoBom\\); $b = [System.IO.File]::ReadAllBytes\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); Write-Output \\('First bytes: ' + \\($b[0..3] -join ','\\)\\); Write-Output \\('Fixed: ' + $s.Contains\\(\"m_Name: `n  m_EditorClassIdentifier: Assembly-CSharp::SoftRobotObstacleCourse\"\\)\\))",
+      "PowerShell($b = [System.IO.File]::ReadAllBytes\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); Write-Output \\('First bytes: ' + \\($b[0..3] -join ','\\)\\); $s = [System.IO.File]::ReadAllText\\('Assets\\\\Scenes\\\\SampleScene.unity'\\); Write-Output \\('CRLF count: ' + [regex]::Matches\\($s, \"`r`n\"\\).Count\\))"
+    ]
+  }
+}
