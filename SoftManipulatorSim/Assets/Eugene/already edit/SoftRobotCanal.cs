@@ -5,7 +5,7 @@ using System.Collections.Generic;
 /// Analytic wall-contact detection for the nasal cavity canal.
 /// </summary>
 [ExecuteAlways]
-[RequireComponent(typeof(Visualizer_XY_Bending_Dof_Ver1_canal))]
+[RequireComponent(typeof(Visualizer_Rotating_Bending_Dof_Ver1_canal))]
 public class SoftRobotCanal : MonoBehaviour
 {
     [Header("Active")]
@@ -44,7 +44,7 @@ public class SoftRobotCanal : MonoBehaviour
     public bool showInvisibleWall = true;
 
     private static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
-    private Visualizer_XY_Bending_Dof_Ver1_canal _robot;
+    private Visualizer_Rotating_Bending_Dof_Ver1_canal _robot;
     private Transform _canalRoot;
     private Material _mat;
     private Color _clearColor;
@@ -54,7 +54,7 @@ public class SoftRobotCanal : MonoBehaviour
 
     private void OnEnable()
     {
-        _robot = GetComponent<Visualizer_XY_Bending_Dof_Ver1_canal>();
+        _robot = GetComponent<Visualizer_Rotating_Bending_Dof_Ver1_canal>();
         Bind();
     }
 
@@ -134,7 +134,7 @@ public class SoftRobotCanal : MonoBehaviour
 
     private void SyncPlacement()
     {
-        if (_robot == null) _robot = GetComponent<Visualizer_XY_Bending_Dof_Ver1_canal>();
+        if (_robot == null) _robot = GetComponent<Visualizer_Rotating_Bending_Dof_Ver1_canal>();
         if (_robot == null) return;
 
         if (autoPlaceFromTransform && _canalRoot != null)
@@ -202,7 +202,7 @@ public class SoftRobotCanal : MonoBehaviour
         }
         _debugContainer.SetActive(true);
 
-        if (_robot == null) _robot = GetComponent<Visualizer_XY_Bending_Dof_Ver1_canal>();
+        if (_robot == null) _robot = GetComponent<Visualizer_Rotating_Bending_Dof_Ver1_canal>();
         if (_robot == null) return;
 
         if (_canalRoot == null) Bind();

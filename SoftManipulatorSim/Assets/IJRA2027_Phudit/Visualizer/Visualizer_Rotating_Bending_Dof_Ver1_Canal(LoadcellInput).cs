@@ -14,7 +14,7 @@ using UnityEngine.InputSystem;
 ///  - State 2: Load cells control Bending (Theta/Phi) of Segment 2.
 /// </summary>
 [ExecuteAlways]
-public class Visualizer_XY_Bending_Dof_Ver1_canal : MonoBehaviour
+public class Visualizer_Rotating_Bending_Dof_Ver1_canal : MonoBehaviour
 {
     // ------------------------------------------------------------ configuration
     [Header("Segment 1 (RIGID)")]
@@ -22,7 +22,7 @@ public class Visualizer_XY_Bending_Dof_Ver1_canal : MonoBehaviour
     [Min(0.001f)] public float L1 = 25f;
 
     [Header("Segment 2 (degrees)")]
-    [Range(-360f, 360f)] public float theta2Deg = 0f;
+    [Range(-90f, 90f)] public float theta2Deg = 0f;
     [Range(-180f, 180f)] public float phi2Deg   = 0f;
     [Range(-180f, 180f)] public float beta2Deg  = 0f;
     [Min(0.001f)]        public float L2        = 25f;
@@ -493,7 +493,7 @@ public class Visualizer_XY_Bending_Dof_Ver1_canal : MonoBehaviour
                     float frameThetaMovement = inputThetaSpeedMultiplier * maxBendSpeedDegPerSec * dt;
                     float framePhiMovement   = inputPhiSpeedMultiplier * maxPhiSpeedDegPerSec * dt;
                     
-                    theta2Deg = Mathf.Clamp(theta2Deg + frameThetaMovement, -360f, 360f);
+                    theta2Deg = Mathf.Clamp(theta2Deg + frameThetaMovement, -90f, 90f);
                     phi2Deg   = Mathf.Repeat(phi2Deg + framePhiMovement + 180f, 360f) - 180f;
                 }
             }

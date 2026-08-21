@@ -5,9 +5,9 @@ using UnityEngine;
 ///
 /// In this updated version, keyboard WASD controls have been removed. 
 /// The physical hardware load cells strictly control the tilt angles directly 
-/// through the Visualizer_XY_Bending_Dof_Ver1_canal script. 
+/// through the Visualizer_Rotating_Bending_Dof_Ver1_canal script. 
 /// </summary>
-[RequireComponent(typeof(Visualizer_XY_Bending_Dof_Ver1_canal))]
+[RequireComponent(typeof(Visualizer_Rotating_Bending_Dof_Ver1_canal))]
 public class SoftRobotExtender : MonoBehaviour
 {
     [Header("Mode")]
@@ -28,7 +28,7 @@ public class SoftRobotExtender : MonoBehaviour
     [Min(0.1f)] public float rodRadius = 4f;
     public Material rodMaterial;
 
-    private Visualizer_XY_Bending_Dof_Ver1_canal _robot;
+    private Visualizer_Rotating_Bending_Dof_Ver1_canal _robot;
     private Transform _plate;
     private Transform _rod;
     private const string RodName = "SR_Extender";
@@ -36,7 +36,7 @@ public class SoftRobotExtender : MonoBehaviour
 
     private void OnEnable()
     {
-        _robot = GetComponent<Visualizer_XY_Bending_Dof_Ver1_canal>();
+        _robot = GetComponent<Visualizer_Rotating_Bending_Dof_Ver1_canal>();
         FindPlate();
     }
 
